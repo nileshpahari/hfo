@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { ContainerTextFlip } from "./container-text-flip";
 import WrapButton from "./ui/wrap-button";
 import { Button } from "@/components/ui/button";
+import ShinyText from "./ui/ShinyText/ShinyText";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -62,9 +63,7 @@ export function Hero() {
             className="text-balance text-4xl font-semibold text-foreground md:text-6xl"
           >
             Stay Organized, Stay{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-purple-900 bg-clip-text text-transparent">
-              Savvio
-            </span>
+            <ShinyText text="Savvio" speed={4} className="font-semibold" />
           </motion.h1>
 
           <motion.p

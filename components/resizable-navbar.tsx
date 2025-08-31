@@ -59,7 +59,7 @@ export function ResizableNavbar() {
         <NavbarButton
           href="#faq"
           variant="primary"
-          className="bg-blue-600 text-white hover:bg-blue-700"
+          className="bg-gradient-to-r from-purple-500 to-purple-900 text-white hover:bg-blue-700"
         >
           Get Started
         </NavbarButton>
