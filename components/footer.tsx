@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-8">
-        <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} MotionSite</p>
+        <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Savvio</p>
         <ul className="flex items-center gap-3">
           {socials.map(({ href, label, Icon }) => (
             <li key={href}>

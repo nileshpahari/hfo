@@ -45,7 +45,7 @@ const WrapButton: React.FC<WrapButtonProps> = ({
             className
           )}
         >
-          <div className="border border-[#3B3A3A] bg-blue-600  h-[43px] rounded-full flex items-center justify-center text-white">
+          <div className="border border-[#3B3A3A] bg-purple-600  h-[43px] rounded-full flex items-center justify-center text-white">
             {/* <Globe className="mx-2 " /> */}
             <p className="font-medium tracking-tight mr-3">
               {children ? children : "Get Started"}

@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { ContainerTextFlip } from "./container-text-flip"
 import WrapButton from "./ui/wrap-button"
+import { Button } from "@/components/ui/button"
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -73,24 +74,31 @@ export function Hero() {
               hidden: { opacity: 0, y: 10 },
               show: { opacity: 1, y: 0, transition: { delay: 0.05 } },
             }}
-            className="mt-8 flex items-center justify-center"
+            className="mt-8 flex items-center justify-center gap-4"
           >
-            <WrapButton><motion.a
-              href="#features"
+            <WrapButton>
+              <motion.a
+                href="#features"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="rounded-lg px-5 py-3 font-medium text-white"
+              >
+                Explore Features
+              </motion.a>
+            </WrapButton>
+            
+            <motion.div
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="rounded-lg px-5 py-3 font-medium text-white ]"
             >
-              Explore Features
-            </motion.a></WrapButton>
-            {/* <motion.a
-              href="#features"
-              whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(37, 99, 235, 0.25)" }}
-              whileTap={{ scale: 0.98 }}
-              className="rounded-lg px-5 py-3 font-medium text-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
-            >
-              
-            </motion.a> */}
+              <Button 
+                variant="outline" 
+                size="lg"
+                asChild
+              >
+                <a href="#showcase">View Demo</a>
+              </Button>
+            </motion.div>
           </motion.div>
 
           <motion.div
