@@ -61,8 +61,12 @@ export function FAQ() {
 
         <div className="space-y-4">
           {faqData.map((item) => (
-            <div
+            <motion.div
               key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: item.id * 0.1 }}
               className="bg-card border border-border rounded-xl overflow-hidden shadow-sm"
             >
               <button
@@ -72,13 +76,17 @@ export function FAQ() {
                 <span className="text-lg font-medium text-card-foreground pr-4">
                   {item.question}
                 </span>
-                <div className="flex-shrink-0">
+                <motion.div
+                  animate={{ rotate: openItems.includes(item.id) ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex-shrink-0"
+                >
                   {openItems.includes(item.id) ? (
                     <Minus className="w-5 h-5 text-muted-foreground" />
                   ) : (
                     <Plus className="w-5 h-5 text-muted-foreground" />
                   )}
-                </div>
+                </motion.div>
               </button>
               
               <AnimatePresence>
@@ -98,7 +106,7 @@ export function FAQ() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
