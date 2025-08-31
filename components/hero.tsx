@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { ContainerTextFlip } from "./container-text-flip";
 import WrapButton from "./ui/wrap-button";
 import { Button } from "@/components/ui/button";
+import { StyledButton } from "./ui/styled-button";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -86,18 +87,9 @@ export function Hero() {
             }}
             className="mt-8 flex items-center justify-center gap-4"
           >
-            <Button
-              className="bg-gradient-to-r from-purple-800 to-purple-500 py-7 px-2 text-neutral-100 text-lg"
-              variant="default"
-            >
-              <motion.a
-                href="#features"
-                whileTap={{ scale: 0.98 }}
-                className="rounded-lg px-5 py-3 font-medium text-white"
-              >
-                Install Extension
-              </motion.a>
-            </Button>
+            <StyledButton href="#features">
+              Install Extension
+            </StyledButton>
 
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button
