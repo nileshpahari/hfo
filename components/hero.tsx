@@ -79,7 +79,6 @@ export function Hero() {
             <WrapButton>
               <motion.a
                 href="#features"
-                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="rounded-lg px-5 py-3 font-medium text-white"
               >
@@ -88,7 +87,6 @@ export function Hero() {
             </WrapButton>
             
             <motion.div
-              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
               <Button 
@@ -103,9 +101,8 @@ export function Hero() {
 
           <motion.div
             initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ type: "spring", stiffness: 120, damping: 18 }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.8 }}
             className="mt-10"
           >
             <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">

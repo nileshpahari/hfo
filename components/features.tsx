@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Section, staggerContainer, fadeUpItem } from "./section"
+import { Section } from "./section"
 import { Bookmark, Folder, Monitor, Search, Sparkles, Lock } from "lucide-react"
 
 const items = [
@@ -50,17 +50,17 @@ export function Features() {
       </div>
 
       <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto"
       >
-        {items.map(({ icon: Icon, title, desc }) => (
+        {items.map(({ icon: Icon, title, desc }, index) => (
           <motion.div
             key={title}
-            variants={fadeUpItem}
-            whileHover={{ y: -4, scale: 1.01 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
             className="rounded-xl border border-border bg-card p-8 shadow-sm text-center"
           >
             <div className="flex flex-col items-center">
