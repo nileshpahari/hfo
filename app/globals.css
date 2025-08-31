@@ -116,7 +116,23 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px; /* Account for sticky navbar height */
+  }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-violet-gradient {
+    /* Light mode: Subtle violet glow on white background */
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.08), transparent 70%), #ffffff;
+  }
+  
+  .dark .bg-violet-gradient {
+    /* Dark mode: Stronger violet glow on black background */
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.25), transparent 70%), #000000;
   }
 }

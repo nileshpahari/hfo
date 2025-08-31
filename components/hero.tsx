@@ -1,20 +1,28 @@
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
-import { ContainerTextFlip } from "./container-text-flip"
-import WrapButton from "./ui/wrap-button"
-import { Button } from "@/components/ui/button"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { ContainerTextFlip } from "./container-text-flip";
+import WrapButton from "./ui/wrap-button";
+import { Button } from "@/components/ui/button";
+import { StyledButton } from "./ui/styled-button";
 
 export function Hero() {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
-  const y = useTransform(scrollYProgress, [0, 1], [0, -60]) // subtle parallax
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -60]); // subtle parallax
 
   return (
-    <div ref={ref} id="home" className="relative isolate overflow-hidden pt-10" aria-label="Hero section">
-      {/* Background gradient (blue -> teal, analogous) */}
-      {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 to-teal-50" aria-hidden /> */}
+    <div
+      ref={ref}
+      id="home"
+      className="relative isolate overflow-hidden pt-24"
+      aria-label="Hero section"
+    >
+    
       <div className="absolute inset-0 -z-10 " aria-hidden />
 
       {/* Parallax decoration */}
@@ -30,7 +38,10 @@ export function Hero() {
           animate="show"
           variants={{
             hidden: { opacity: 0 },
-            show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.4 } },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.12, delayChildren: 0.4 },
+            },
           }}
         >
           <motion.h1
@@ -40,12 +51,20 @@ export function Hero() {
                 opacity: 1,
                 y: 0,
                 filter: "blur(0px)",
-                transition: { type: "spring", stiffness: 110, damping: 14, delay: 0.4 },
+                transition: {
+                  type: "spring",
+                  stiffness: 110,
+                  damping: 14,
+                  delay: 0.4,
+                },
               },
             }}
             className="text-balance text-4xl font-semibold text-foreground md:text-6xl"
           >
-            {"Stay Organized, Stay Savvio"}
+            Stay Organized, Stay{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-purple-900 bg-clip-text text-transparent font-semibold">
+              Savvio
+            </span>
           </motion.h1>
 
           <motion.p
@@ -56,7 +75,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground md:text-lg"
           >
-            Save, search, and manage bookmarks & notes across devices all from one simple extension and dashboard.
+            Save, search, and manage bookmarks & notes across devices all from
+            one simple extension and dashboard.
           </motion.p>
 
           <motion.div
@@ -66,22 +86,12 @@ export function Hero() {
             }}
             className="mt-8 flex items-center justify-center gap-4"
           >
-            <WrapButton>
-              <motion.a
-                href="#features"
-                whileTap={{ scale: 0.98 }}
-                className="rounded-lg px-5 py-3 font-medium text-white"
-              >
-               Install Extension
-              </motion.a>
-            </WrapButton>
-            
-            <motion.div
-              whileTap={{ scale: 0.98 }}
-            >
-              <Button 
-              className="ml-1 py-7 px-6 rounded-xl text-md"
-              variant="outline"
+            <Button className=" bg-gradient-to-r from-purple-800 to-purple-500 text-white text-md py-7 px-5">Install Extension</Button>
+
+            <motion.div whileTap={{ scale: 0.98 }}>
+              <Button
+                className="ml-1 py-7 px-6 rounded-xl text-md"
+                variant="outline"
                 asChild
               >
                 <a href="#showcase">Explore Features</a>
@@ -92,7 +102,12 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.35 }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 18,
+              delay: 0.35,
+            }}
             className="mt-10"
           >
             <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">
@@ -106,5 +121,5 @@ export function Hero() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
