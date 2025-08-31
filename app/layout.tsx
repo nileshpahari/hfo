@@ -26,20 +26,23 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen w-full relative bg-white dark:bg-background">
-            {/* Violet Glow Background (Light Mode) */}
+          {/* Light Mode: Violet Glow Background */}
+          <div className="min-h-screen w-full relative dark:hidden">
             <div
-              className="absolute inset-0 z-0 dark:hidden"
+              className="absolute inset-0 z-0"
               style={{
                 background:
                   "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.15), transparent 70%), #ffffff",
               }}
             />
-
-            {/* Your Content/Components */}
             <div className="relative z-10">
               {children}
             </div>
+          </div>
+          
+          {/* Dark Mode: Default Background */}
+          <div className="min-h-screen w-full relative bg-background hidden dark:block">
+            {children}
           </div>
         </ThemeProvider>
         <Analytics />
