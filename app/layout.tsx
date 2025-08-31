@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased scroll-smooth bg-violet-gradient dark:bg-background`}>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased scroll-smooth bg-violet-gradient`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
