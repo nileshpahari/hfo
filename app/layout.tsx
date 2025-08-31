@@ -7,9 +7,9 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/ui/theme-provider"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Savvio",
+  description: "A web page bookmark extention",
+  generator: "Savvio",
 }
 
 export default function RootLayout({

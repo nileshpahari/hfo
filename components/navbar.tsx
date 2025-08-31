@@ -11,14 +11,13 @@ const links = [
   { href: "#faq", label: "FAQ" },
 ]
 
-export function Navbar() {
+export function Navbar () {
   const { scrollY } = useScroll()
   const [scrolled, setScrolled] = useState(false)
 
   useMotionValueEvent(scrollY, "change", (latest) => setScrolled(latest > 10))
 
   useEffect(() => {
-    // ensure client hydration
   }, [])
 
   return (
@@ -65,7 +64,7 @@ export function Navbar() {
                   className="group relative block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <span className="relative z-10">{l.label}</span>
-                  <span className="pointer-events-none absolute inset-x-2 -bottom-0.5 h-[2px] origin-left scale-x-0 rounded bg-teal-500 transition-transform duration-300 group-hover:scale-x-100" />
+                  <span className="pointer-events-none absolute inset-x-2 -bottom-0.5 h-[2px] origin-left scale-x-0 rounded bg-purple-500 transition-transform duration-300 group-hover:scale-x-100" />
                 </a>
               </li>
             ))}

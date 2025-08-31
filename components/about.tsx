@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { Section, staggerContainer, fadeUpItem } from "./section"
 
@@ -16,24 +16,20 @@ export function About() {
       >
         <motion.div variants={fadeUpItem}>
           <h2 className="text-balance text-3xl font-semibold text-foreground md:text-4xl">
-            Fluid, responsive interfaces
+            A Better Way to Manage Bookmarks
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Animate on load, on scroll, and on hover with accessible, performance-conscious patterns. Our approach
-            balances visual flair with usability and clarity.
+           Introducing a solution that brings all your bookmarks together in one place.
+           Across browsers. Across devices.
           </p>
-          <ul className="mt-6 space-y-2 text-foreground">
-            <li>• Scroll-triggered reveals with subtle blur easing</li>
-            <li>• Staggered entrances for hierarchy and rhythm</li>
-            <li>• Hover and tap states for every interactive element</li>
-          </ul>
+         <Button className="mt-3 bg-purple-600 text-white text-md py-6 px-4">Get Started with Savvio</Button>
         </motion.div>
 
         <motion.div variants={fadeUpItem} className="relative">
           <div className="mx-auto max-w-xl rounded-2xl border border-border bg-card p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">
               <img
                 src="https://simp6.selti-delivery.ru/images3/Screenshot_31-Aug_12-53-28_5956152e4a8d111e6815.png"
-                alt="Product dashboard preview with folders and bookmarks UI"
+                alt="not found"
                 className="w-full rounded-xl"
               />
             </div>

@@ -92,11 +92,11 @@ export function Hero() {
               whileTap={{ scale: 0.98 }}
             >
               <Button 
-                variant="outline" 
-                size="lg"
+              className="ml-1 py-7 px-6 rounded-xl text-md"
+              variant="outline"
                 asChild
               >
-                <a href="#showcase">View Demo</a>
+                <a href="#showcase">Install Extension</a>
               </Button>
             </motion.div>
           </motion.div>
