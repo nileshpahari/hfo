@@ -55,7 +55,7 @@ export function Navbar() {
                 />
               </svg>
             </motion.div>
-            <span className="font-semibold text-foreground">MotionSite</span>
+            <span className="font-semibold text-foreground">Savvio</span>
           </a>
 
           <ul className="hidden items-center gap-1 md:flex">
