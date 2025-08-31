@@ -123,6 +123,6 @@
 
 @layer utilities {
   .bg-violet-gradient {
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.25), transparent 70%), #000000;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   }
 }
