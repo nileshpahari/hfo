@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { Plus, Minus } from "lucide-react"
 import { Section } from "./section"
 
@@ -61,12 +60,8 @@ export function FAQ() {
 
         <div className="space-y-4">
           {faqData.map((item) => (
-            <motion.div
+            <div
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: item.id * 0.1 }}
               className="bg-card border border-border rounded-xl overflow-hidden shadow-sm"
             >
               <button
@@ -76,37 +71,23 @@ export function FAQ() {
                 <span className="text-lg font-medium text-card-foreground pr-4">
                   {item.question}
                 </span>
-                <motion.div
-                  animate={{ rotate: openItems.includes(item.id) ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex-shrink-0"
-                >
+                <div className="flex-shrink-0">
                   {openItems.includes(item.id) ? (
                     <Minus className="w-5 h-5 text-muted-foreground" />
                   ) : (
                     <Plus className="w-5 h-5 text-muted-foreground" />
                   )}
-                </motion.div>
+                </div>
               </button>
               
-              <AnimatePresence>
-                {openItems.includes(item.id) && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 pb-5 pt-0">
-                      <p className="text-muted-foreground leading-relaxed">
-                        {item.answer}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              {openItems.includes(item.id) && (
+                <div className="px-6 pb-5 pt-0">
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.answer}
+                  </p>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
