@@ -12,6 +12,7 @@ import {
   MobileNavToggle,
   NavbarButton,
 } from "@/components/ui/resizable-navbar"
+import { FancyButton } from "./ui/fancy-button"
 
 const navItems = [
   { name: "Home", link: "#home" },
@@ -56,13 +57,9 @@ export function ResizableNavbar() {
         <NavItems items={navItems} />
 
         {/* CTA Button */}
-        <NavbarButton
-          href="#faq"
-          variant="primary"
-          className="bg-gradient-to-r from-purple-500 to-purple-900 text-white hover:bg-blue-700"
-        >
+        <FancyButton href="#faq">
           Get Started
-        </NavbarButton>
+        </FancyButton>
       </NavBody>
 
       {/* Mobile Navigation */}
@@ -103,14 +100,13 @@ export function ResizableNavbar() {
               {item.name}
             </a>
           ))}
-          <NavbarButton
+          <FancyButton
             href="#faq"
-            variant="primary"
-            className="mt-4 bg-blue-600 text-white hover:bg-blue-700"
+            className="mt-4"
             onClick={closeMobileMenu}
           >
             Get Started
-          </NavbarButton>
+          </FancyButton>
         </MobileNavMenu>
       </MobileNav>
     </Navbar>
