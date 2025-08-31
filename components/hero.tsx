@@ -22,8 +22,7 @@ export function Hero() {
       className="relative isolate overflow-hidden pt-24"
       aria-label="Hero section"
     >
-      {/* Background gradient (blue -> teal, analogous) */}
-      {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 to-teal-50" aria-hidden /> */}
+    
       <div className="absolute inset-0 -z-10 " aria-hidden />
 
       {/* Parallax decoration */}
@@ -87,9 +86,7 @@ export function Hero() {
             }}
             className="mt-8 flex items-center justify-center gap-4"
           >
-            <StyledButton href="#features">
-              Install Extension
-            </StyledButton>
+            <Button className=" bg-gradient-to-r from-purple-800 to-purple-500 text-white text-md py-7 px-5">Install Extension</Button>
 
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button
