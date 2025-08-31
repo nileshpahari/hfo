@@ -32,7 +32,7 @@ export function ResizableNavbar() {
       {/* Desktop Navigation */}
       <NavBody>
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <a href="#home" className="flex items-center gap-2">
           <motion.div
             animate={{ y: [0, -2, 0] }}
             transition={{ repeat: Number.POSITIVE_INFINITY, duration: 3, ease: "easeInOut" }}
@@ -50,7 +50,7 @@ export function ResizableNavbar() {
             </svg>
           </motion.div>
           <span className="font-semibold text-foreground">Savvio</span>
-        </div>
+        </a>
 
         {/* Navigation Items */}
         <NavItems items={navItems} />
@@ -69,7 +69,7 @@ export function ResizableNavbar() {
       <MobileNav>
         <MobileNavHeader>
           {/* Mobile Logo */}
-          <div className="flex items-center gap-2">
+          <a href="#home" className="flex items-center gap-2">
             <motion.div
               animate={{ y: [0, -2, 0] }}
               transition={{ repeat: Number.POSITIVE_INFINITY, duration: 3, ease: "easeInOut" }}
@@ -87,9 +87,7 @@ export function ResizableNavbar() {
               </svg>
             </motion.div>
             <span className="font-semibold text-foreground">Savvio</span>
-          </div>
-
-          {/* Mobile Menu Toggle */}
+          </a>          {/* Mobile Menu Toggle */}
           <MobileNavToggle isOpen={isMobileMenuOpen} onClick={toggleMobileMenu} />
         </MobileNavHeader>
 

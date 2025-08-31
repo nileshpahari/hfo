@@ -12,7 +12,7 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, -60]) // subtle parallax
 
   return (
-    <div ref={ref} id="home" className="relative isolate overflow-hidden pt-10" aria-label="Hero section">
+    <div ref={ref} id="home" className="relative isolate overflow-hidden pt-24" aria-label="Hero section">
       {/* Background gradient (blue -> teal, analogous) */}
       {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 to-teal-50" aria-hidden /> */}
       <div className="absolute inset-0 -z-10 " aria-hidden />
