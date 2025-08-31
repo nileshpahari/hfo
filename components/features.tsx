@@ -39,7 +39,7 @@ export function Features() {
             key={title}
             variants={fadeUpItem}
             whileHover={{ y: -4, scale: 1.01 }}
-            className="rounded-xl border border-border bg-card p-6 shadow-sm"
+            className="rounded-xl border bg-[#fafbff] border-border  p-6 shadow-sm"
           >
             <div className="flex items-center gap-3">
               <div className="rounded-md bg-teal-50 p-2">
