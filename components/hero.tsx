@@ -12,7 +12,7 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, -60]) // subtle parallax
 
   return (
-    <div ref={ref} id="home" className="relative isolate overflow-hidden mt-20" aria-label="Hero section">
+    <div ref={ref} id="home" className="relative isolate overflow-hidden pt-10" aria-label="Hero section">
       {/* Background gradient (blue -> teal, analogous) */}
       {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 to-teal-50" aria-hidden /> */}
       <div className="absolute inset-0 -z-10 " aria-hidden />
@@ -30,7 +30,7 @@ export function Hero() {
           animate="show"
           variants={{
             hidden: { opacity: 0 },
-            show: { opacity: 1, transition: { staggerChildren: 0.12 } },
+            show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.4 } },
           }}
         >
           <motion.h1
@@ -40,22 +40,12 @@ export function Hero() {
                 opacity: 1,
                 y: 0,
                 filter: "blur(0px)",
-                transition: { type: "spring", stiffness: 110, damping: 14 },
+                transition: { type: "spring", stiffness: 110, damping: 14, delay: 0.4 },
               },
             }}
             className="text-balance text-4xl font-semibold text-foreground md:text-6xl"
           >
             {"Stay Organized, Stay Savvio"}
-            {/* <span className="inline-flex items-baseline gap-2">
-              <span className="sr-only">dynamic word: </span>
-              <span className="inline-flex rounded px-1.5 py-0.5 ring-1 ring-blue-600/20 bg-blue-50">
-              
-                <ContainerTextFlip
-                  words={["experiences", "interfaces", "apps", "demos", "workflows"]}
-                  
-                />
-              </span>
-            </span> */}
           </motion.h1>
 
           <motion.p
@@ -63,7 +53,7 @@ export function Hero() {
               hidden: { opacity: 0, y: 10, filter: "blur(6px)" },
               show: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground md:text-lg"
           >
             Save, search, and manage bookmarks & notes across devices all from one simple extension and dashboard.
@@ -72,23 +62,21 @@ export function Hero() {
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 10 },
-              show: { opacity: 1, y: 0, transition: { delay: 0.05 } },
+              show: { opacity: 1, y: 0, transition: { delay: 0.4 } },
             }}
             className="mt-8 flex items-center justify-center gap-4"
           >
             <WrapButton>
               <motion.a
                 href="#features"
-                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="rounded-lg px-5 py-3 font-medium text-white"
               >
-                Explore Features
+               Install Extension
               </motion.a>
             </WrapButton>
             
             <motion.div
-              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
               <Button 
@@ -96,16 +84,15 @@ export function Hero() {
               variant="outline"
                 asChild
               >
-                <a href="#showcase">Install Extension</a>
+                <a href="#showcase">Explore Features</a>
               </Button>
             </motion.div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ type: "spring", stiffness: 120, damping: 18 }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.35 }}
             className="mt-10"
           >
             <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">

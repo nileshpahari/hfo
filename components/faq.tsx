@@ -40,7 +40,7 @@ const faqData = [
 ]
 
 export function FAQ() {
-  const [openItems, setOpenItems] = useState<number[]>([1])
+  const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggleItem = (id: number) => {
     setOpenItems(prev => 

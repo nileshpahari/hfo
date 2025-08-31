@@ -25,9 +25,8 @@ export function ParallaxCard({
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ type: "spring", stiffness: 110, damping: 16, delay }}
-      viewport={{ once: true, amount: 0.2 }}
       className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm"
     >
       <motion.div style={{ y, opacity }}>
@@ -36,13 +35,14 @@ export function ParallaxCard({
           alt={alt}
           width={800}
           height={600}
-          className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-56 w-full object-cover transition-transform duration-500"
         />
       </motion.div>
 
       <motion.div
-        whileHover={{ opacity: 1 }}
         initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ delay: delay + 0.2 }}
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"
         aria-hidden
       />
@@ -50,8 +50,8 @@ export function ParallaxCard({
       <div className="absolute inset-x-0 bottom-0 p-4">
         <motion.div
           initial={{ y: 8, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: delay + 0.4 }}
           className="rounded-md bg-card/90 p-2 text-sm text-card-foreground backdrop-blur"
         >
           Steps
