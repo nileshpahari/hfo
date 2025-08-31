@@ -7,8 +7,8 @@ export function FAQ() {
   return (
     <Section id="faq" className="py-20">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-balance text-3xl font-semibold text-gray-900 md:text-4xl">Frequently Asked Questions</h2>
-        <p className="mt-3 text-gray-600">Answers to common questions about the animations and components.</p>
+        <h2 className="text-balance text-3xl font-semibold text-foreground md:text-4xl">Frequently Asked Questions</h2>
+        <p className="mt-3 text-muted-foreground">Answers to common questions about the animations and components.</p>
       </div>
 
       <div className="mx-auto mt-10 max-w-3xl">

@@ -42,7 +42,7 @@ export function Hero() {
                 transition: { type: "spring", stiffness: 110, damping: 14 },
               },
             }}
-            className="text-balance text-4xl font-semibold text-gray-900 md:text-6xl"
+            className="text-balance text-4xl font-semibold text-foreground md:text-6xl"
           >
             {"Stay Organized, Stay Savvio"}
             {/* <span className="inline-flex items-baseline gap-2">
@@ -63,7 +63,7 @@ export function Hero() {
               show: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
             transition={{ duration: 0.5 }}
-            className="mx-auto mt-4 max-w-2xl text-pretty text-gray-600 md:text-lg"
+            className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground md:text-lg"
           >
             Save, search, and manage bookmarks & notes across devices all from one simple extension and dashboard.
           </motion.p>
@@ -100,7 +100,7 @@ export function Hero() {
             transition={{ type: "spring", stiffness: 120, damping: 18 }}
             className="mt-10"
           >
-            <div className="mx-auto max-w-5xl rounded-2xl border border-gray-200 bg-white p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)]">
+            <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">
               <img
                 src="https://simp6.selti-delivery.ru/images3/Screenshot_31-Aug_12-53-28_5956152e4a8d111e6815.png"
                 alt="Product dashboard preview with folders and bookmarks UI"

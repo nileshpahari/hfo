@@ -21,10 +21,10 @@ export function Features() {
   return (
     <Section id="features" className="py-20">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-balance text-3xl font-semibold text-gray-900 md:text-4xl">
+        <h2 className="text-balance text-3xl font-semibold text-foreground md:text-4xl">
           Built-in motion, zero friction
         </h2>
-        <p className="mt-3 text-gray-600">A set of animated building blocks to craft modern UIs with confidence.</p>
+        <p className="mt-3 text-muted-foreground">A set of animated building blocks to craft modern UIs with confidence.</p>
       </div>
 
       <motion.div
@@ -39,15 +39,15 @@ export function Features() {
             key={title}
             variants={fadeUpItem}
             whileHover={{ y: -4, scale: 1.01 }}
-            className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+            className="rounded-xl border border-border bg-card p-6 shadow-sm"
           >
             <div className="flex items-center gap-3">
               <div className="rounded-md bg-teal-50 p-2">
                 <Icon className="h-5 w-5 text-teal-500" aria-hidden="true" />
               </div>
-              <h3 className="font-medium text-gray-900">{title}</h3>
+              <h3 className="font-medium text-card-foreground">{title}</h3>
             </div>
-            <p className="mt-3 text-gray-600">{desc}</p>
+            <p className="mt-3 text-muted-foreground">{desc}</p>
           </motion.div>
         ))}
       </motion.div>

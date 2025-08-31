@@ -1,5 +1,5 @@
 "use client"
-import ThemeToggleButton from "../components/ui/theme-toggle-button"
+import ThemeToggleButton from "./ui/theme-toggle-button"
 import { motion } from "framer-motion"
 import { Github, Linkedin, Twitter } from "lucide-react"
 
@@ -10,9 +10,9 @@ export function Footer() {
     { href: "https://linkedin.com", label: "LinkedIn", Icon: Linkedin },
   ]
   return (
-    <footer className="border-t border-gray-200 bg-white">
+    <footer className="border-t border-border bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-8">
-        <p className="text-sm text-gray-600">© {new Date().getFullYear()} MotionSite</p>
+        <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} MotionSite</p>
         <ul className="flex items-center gap-3">
           {socials.map(({ href, label, Icon }) => (
             <li key={href}>
@@ -23,7 +23,7 @@ export function Footer() {
                 aria-label={label}
                 whileHover={{ scale: 1.12, rotate: 6 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex rounded-md p-2 text-gray-700 hover:text-gray-900"
+                className="inline-flex rounded-md p-2 text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </motion.a>

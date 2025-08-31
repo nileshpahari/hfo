@@ -28,7 +28,7 @@ export function Navbar() {
       animate={{
         paddingTop: scrolled ? 10 : 18,
         paddingBottom: scrolled ? 10 : 18,
-        backgroundColor: scrolled ? "rgba(255,255,255,0.7)" : "rgba(255,255,255,0)",
+        backgroundColor: scrolled ? "hsl(var(--background) / 0.7)" : "hsl(var(--background) / 0)",
         backdropFilter: scrolled ? "blur(8px)" : "blur(0px)",
       }}
       transition={{ type: "spring", stiffness: 200, damping: 24 }}
@@ -55,7 +55,7 @@ export function Navbar() {
                 />
               </svg>
             </motion.div>
-            <span className="font-semibold text-gray-900">MotionSite</span>
+            <span className="font-semibold text-foreground">MotionSite</span>
           </a>
 
           <ul className="hidden items-center gap-1 md:flex">
@@ -63,7 +63,7 @@ export function Navbar() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="group relative block rounded-md px-3 py-2 text-sm text-gray-700 transition-colors hover:text-gray-900"
+                  className="group relative block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <span className="relative z-10">{l.label}</span>
                   <span className="pointer-events-none absolute inset-x-2 -bottom-0.5 h-[2px] origin-left scale-x-0 rounded bg-teal-500 transition-transform duration-300 group-hover:scale-x-100" />

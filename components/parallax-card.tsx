@@ -28,7 +28,7 @@ export function ParallaxCard({
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ type: "spring", stiffness: 110, damping: 16, delay }}
       viewport={{ once: true, amount: 0.2 }}
-      className="group relative overflow-hidden rounded-xl border border-gray-2 00 bg-white shadow-sm"
+      className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm"
     >
       <motion.div style={{ y, opacity }}>
         <Image
@@ -52,7 +52,7 @@ export function ParallaxCard({
           initial={{ y: 8, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="rounded-md bg-white/90 p-2 text-sm text-gray-700 backdrop-blur"
+          className="rounded-md bg-card/90 p-2 text-sm text-card-foreground backdrop-blur"
         >
           Steps
         </motion.div>

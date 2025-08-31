@@ -27,11 +27,11 @@ function Row({ offset = 0 }) {
         <motion.blockquote
           key={`${t.name}-${i}-${offset}`}
           whileHover={{ scale: 1.03 }}
-          className="min-w-[280px] max-w-[320px] flex-1 rounded-xl border border-gray-200 bg-white p-4 text-gray-700 shadow-sm"
+          className="min-w-[280px] max-w-[320px] flex-1 rounded-xl border border-border bg-card p-4 text-card-foreground shadow-sm"
         >
           “{t.quote}”
-          <footer className="mt-3 text-sm text-gray-600">
-            <span className="font-medium text-gray-900">{t.name}</span> — {t.role}
+          <footer className="mt-3 text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">{t.name}</span> — {t.role}
           </footer>
         </motion.blockquote>
       ))}
@@ -43,8 +43,8 @@ export function Testimonials() {
   return (
     <Section id="testimonials" className="py-20">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-balance text-3xl font-semibold text-gray-900 md:text-4xl">Testimonials</h2>
-        <p className="mt-3 text-gray-600">Auto-scrolling carousel with smooth motion.</p>
+        <h2 className="text-balance text-3xl font-semibold text-foreground md:text-4xl">Testimonials</h2>
+        <p className="mt-3 text-muted-foreground">Auto-scrolling carousel with smooth motion.</p>
       </div>
 
       <div className="relative mt-10 overflow-hidden">
