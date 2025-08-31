@@ -12,7 +12,7 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, -60]) // subtle parallax
 
   return (
-    <div ref={ref} id="home" className="relative isolate overflow-hidden mt-20" aria-label="Hero section">
+    <div ref={ref} id="home" className="relative isolate overflow-hidden mt-10" aria-label="Hero section">
       {/* Background gradient (blue -> teal, analogous) */}
       {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 to-teal-50" aria-hidden /> */}
       <div className="absolute inset-0 -z-10 " aria-hidden />
@@ -46,16 +46,6 @@ export function Hero() {
             className="text-balance text-4xl font-semibold text-foreground md:text-6xl"
           >
             {"Stay Organized, Stay Savvio"}
-            {/* <span className="inline-flex items-baseline gap-2">
-              <span className="sr-only">dynamic word: </span>
-              <span className="inline-flex rounded px-1.5 py-0.5 ring-1 ring-blue-600/20 bg-blue-50">
-              
-                <ContainerTextFlip
-                  words={["experiences", "interfaces", "apps", "demos", "workflows"]}
-                  
-                />
-              </span>
-            </span> */}
           </motion.h1>
 
           <motion.p
@@ -82,7 +72,7 @@ export function Hero() {
                 whileTap={{ scale: 0.98 }}
                 className="rounded-lg px-5 py-3 font-medium text-white"
               >
-                Explore Features
+               Install Extension
               </motion.a>
             </WrapButton>
             
@@ -94,7 +84,7 @@ export function Hero() {
               variant="outline"
                 asChild
               >
-                <a href="#showcase">Install Extension</a>
+                <a href="#showcase">Explore Features</a>
               </Button>
             </motion.div>
           </motion.div>
@@ -102,7 +92,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.8 }}
+            transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.1 }}
             className="mt-10"
           >
             <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">
