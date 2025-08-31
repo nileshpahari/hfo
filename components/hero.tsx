@@ -1,0 +1,115 @@
+"use client"
+
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
+import { ContainerTextFlip } from "./container-text-flip"
+import WrapButton from "./ui/wrap-button"
+
+export function Hero() {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
+  const y = useTransform(scrollYProgress, [0, 1], [0, -60]) // subtle parallax
+
+  return (
+    <div ref={ref} id="home" className="relative isolate overflow-hidden mt-20" aria-label="Hero section">
+      {/* Background gradient (blue -> teal, analogous) */}
+      {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 to-teal-50" aria-hidden /> */}
+      <div className="absolute inset-0 -z-10 " aria-hidden />
+
+      {/* Parallax decoration */}
+      <motion.div
+        style={{ y }}
+        className="pointer-events-none absolute -top-24 right-1/2 h-72 w-72 translate-x-1/2 rounded-full blur-3xl"
+        aria-hidden
+      />
+
+      <div className="mx-auto flex min-h-[80vh] max-w-6xl flex-col items-center justify-center gap-6 px-4 text-center">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: { opacity: 0 },
+            show: { opacity: 1, transition: { staggerChildren: 0.12 } },
+          }}
+        >
+          <motion.h1
+            variants={{
+              hidden: { opacity: 0, y: 12, filter: "blur(8px)" },
+              show: {
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                transition: { type: "spring", stiffness: 110, damping: 14 },
+              },
+            }}
+            className="text-balance text-4xl font-semibold text-gray-900 md:text-6xl"
+          >
+            {"Stay Organized, Stay Savvio"}
+            {/* <span className="inline-flex items-baseline gap-2">
+              <span className="sr-only">dynamic word: </span>
+              <span className="inline-flex rounded px-1.5 py-0.5 ring-1 ring-blue-600/20 bg-blue-50">
+              
+                <ContainerTextFlip
+                  words={["experiences", "interfaces", "apps", "demos", "workflows"]}
+                  
+                />
+              </span>
+            </span> */}
+          </motion.h1>
+
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 10, filter: "blur(6px)" },
+              show: { opacity: 1, y: 0, filter: "blur(0px)" },
+            }}
+            transition={{ duration: 0.5 }}
+            className="mx-auto mt-4 max-w-2xl text-pretty text-gray-600 md:text-lg"
+          >
+            Save, search, and manage bookmarks & notes across devices all from one simple extension and dashboard.
+          </motion.p>
+
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 10 },
+              show: { opacity: 1, y: 0, transition: { delay: 0.05 } },
+            }}
+            className="mt-8 flex items-center justify-center"
+          >
+            <WrapButton><motion.a
+              href="#features"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="rounded-lg px-5 py-3 font-medium text-white ]"
+            >
+              Explore Features
+            </motion.a></WrapButton>
+            {/* <motion.a
+              href="#features"
+              whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(37, 99, 235, 0.25)" }}
+              whileTap={{ scale: 0.98 }}
+              className="rounded-lg px-5 py-3 font-medium text-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+            >
+              
+            </motion.a> */}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ type: "spring", stiffness: 120, damping: 18 }}
+            className="mt-10"
+          >
+            <div className="mx-auto max-w-5xl rounded-2xl border border-gray-200 bg-white p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)]">
+              <img
+                src="https://simp6.selti-delivery.ru/images3/Screenshot_31-Aug_12-53-28_5956152e4a8d111e6815.png"
+                alt="Product dashboard preview with folders and bookmarks UI"
+                className="w-full rounded-xl"
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  )
+}
