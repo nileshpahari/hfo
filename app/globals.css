@@ -117,7 +117,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground;
-    background: transparent;
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-violet-gradient {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.15), transparent 70%), #ffffff;
   }
 }

@@ -19,31 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased scroll-smooth`}>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased scroll-smooth bg-violet-gradient dark:bg-background`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {/* Light Mode: Violet Glow Background */}
-          <div className="min-h-screen w-full relative dark:hidden">
-            <div
-              className="absolute inset-0 z-0"
-              style={{
-                background:
-                  "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.15), transparent 70%), #ffffff",
-              }}
-            />
-            <div className="relative z-10">
-              {children}
-            </div>
-          </div>
-          
-          {/* Dark Mode: Default Background */}
-          <div className="min-h-screen w-full relative bg-background hidden dark:block">
-            {children}
-          </div>
+          {children}
         </ThemeProvider>
         <Analytics />
       </body>
