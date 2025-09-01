@@ -61,11 +61,11 @@ export function Features() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-            className="rounded-xl border border-border bg-card p-8 shadow-sm text-center"
+            className="rounded-xl border bg-neutral-100 dark:bg-[#030712] border-border p-8 shadow-sm text-center"
           >
             <div className="flex flex-col items-center">
-              <div className="rounded-lg bg-purple-50 p-4 mb-6 dark:bg-purple-900/20">
-                <Icon className="h-8 w-8 text-purple-600 dark:text-purple-400" aria-hidden="true" />
+              <div className="rounded-lg bg-violet-50 p-4 mb-6 dark:bg-indigo-900/20">
+                <Icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-semibold text-card-foreground mb-3">{title}</h3>
               <p className="text-muted-foreground text-base leading-relaxed max-w-sm">{desc}</p>

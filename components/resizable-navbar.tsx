@@ -10,9 +10,8 @@ import {
   MobileNavHeader,
   MobileNavMenu,
   MobileNavToggle,
-  NavbarButton,
 } from "@/components/ui/resizable-navbar"
-import { FancyButton } from "./ui/fancy-button"
+import { HoverBorderGradient } from "./ui/hover-border-gradient"
 
 const navItems = [
   { name: "Home", link: "#home" },
@@ -42,7 +41,7 @@ export function ResizableNavbar() {
             className="grid h-8 w-8 place-items-center rounded-lg bg-blue-600/10 ring-1 ring-blue-600/30"
             aria-hidden="true"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-purple-600">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-indigo-600">
               <path
                 d="M3 6.75A1.75 1.75 0 0 1 4.75 5h3.879c.464 0 .908.184 1.237.513l1.06 1.06c.329.33.773.514 1.237.514H19.25A1.75 1.75 0 0 1 21 8.836v8.414A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25V6.75Z"
                 stroke="currentColor"
@@ -57,9 +56,15 @@ export function ResizableNavbar() {
         <NavItems items={navItems} />
 
         {/* CTA Button */}
-        <FancyButton href="#faq">
-          Get Started
-        </FancyButton>
+        <a href="#faq">
+          <HoverBorderGradient
+            className="bg-black text-white"
+            containerClassName="rounded-full"
+            duration={1}
+          >
+            Get Started
+          </HoverBorderGradient>
+        </a>
       </NavBody>
 
       {/* Mobile Navigation */}
@@ -100,13 +105,15 @@ export function ResizableNavbar() {
               {item.name}
             </a>
           ))}
-          <FancyButton
-            href="#faq"
-            className="mt-4"
-            onClick={closeMobileMenu}
-          >
-            Get Started
-          </FancyButton>
+          <a href="#faq" onClick={closeMobileMenu}>
+            <HoverBorderGradient
+              className="bg-black text-white mt-4"
+              containerClassName="rounded-full"
+              duration={1}
+            >
+              Get Started
+            </HoverBorderGradient>
+          </a>
         </MobileNavMenu>
       </MobileNav>
     </Navbar>

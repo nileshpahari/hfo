@@ -25,7 +25,7 @@ export function About() {
            Introducing a solution that brings all your bookmarks together in one place.
            Across browsers. Across devices.
           </p>
-         <Button className="mt-3 bg-gradient-to-r from-purple-800 to-purple-500 text-white text-md py-6 px-4">Get Started with Savvio</Button>
+         <Button className="mt-3 rounded-2xl bg-gradient-to-r from-indigo-800 to-violet-500 text-white text-md py-6 px-4">Get Started with Savvio</Button>
         </motion.div>
 
         <motion.div 

@@ -3,9 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ContainerTextFlip } from "./container-text-flip";
-import WrapButton from "./ui/wrap-button";
 import { Button } from "@/components/ui/button";
-import { StyledButton } from "./ui/styled-button";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -13,19 +11,18 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -60]); // subtle parallax
+  const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
     <div
       ref={ref}
       id="home"
-      className="relative isolate overflow-hidden pt-24"
+      className="relative isolate overflow-hidden pt-36"
       aria-label="Hero section"
     >
     
       <div className="absolute inset-0 -z-10 " aria-hidden />
 
-      {/* Parallax decoration */}
       <motion.div
         style={{ y }}
         className="pointer-events-none absolute -top-24 right-1/2 h-72 w-72 translate-x-1/2 rounded-full blur-3xl"
@@ -62,7 +59,7 @@ export function Hero() {
             className="text-balance text-4xl font-semibold text-foreground md:text-6xl"
           >
             Stay Organized, Stay{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-purple-900 bg-clip-text text-transparent font-semibold">
+            <span className="bg-gradient-to-r from-indigo-500 to-violet-900 bg-clip-text text-transparent font-semibold">
               Savvio
             </span>
           </motion.h1>
@@ -86,12 +83,12 @@ export function Hero() {
             }}
             className="mt-8 flex items-center justify-center gap-4"
           >
-            <Button className=" bg-gradient-to-r from-purple-800 to-purple-500 text-white text-md py-7 px-5">Install Extension</Button>
+            <Button className=" bg-gradient-to-r from-violet-800 to-indigo-500 rounded-2xl text-white text-md py-7 px-5">Install Extension</Button>
 
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button
-                className="ml-1 py-7 px-6 rounded-xl text-md"
-                variant="outline"
+                className="ml-1 py-7 px-6 rounded-2xl text-md"
+                
                 asChild
               >
                 <a href="#showcase">Explore Features</a>
@@ -108,7 +105,7 @@ export function Hero() {
               damping: 18,
               delay: 0.35,
             }}
-            className="mt-10"
+            className="mt-16"
           >
             <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card p-2 shadow-[0_10px_50px_rgba(2,6,23,0.08)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">
               <img
