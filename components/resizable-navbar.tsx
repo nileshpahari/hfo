@@ -49,7 +49,7 @@ export function ResizableNavbar() {
               />
             </svg>
           </motion.div>
-          <span className="font-semibold text-foreground">Savvio</span>
+          <span className="font-bold text-foreground font-sans text-lg tracking-tight">Savvio</span>
         </a>
 
         {/* Navigation Items */}
@@ -88,7 +88,7 @@ export function ResizableNavbar() {
                 />
               </svg>
             </motion.div>
-            <span className="font-semibold text-foreground">Savvio</span>
+            <span className="font-bold text-foreground font-sans text-lg tracking-tight">Savvio</span>
           </a>          {/* Mobile Menu Toggle */}
           <MobileNavToggle isOpen={isMobileMenuOpen} onClick={toggleMobileMenu} />
         </MobileNavHeader>

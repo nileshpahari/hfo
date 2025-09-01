@@ -56,10 +56,10 @@ export function Hero() {
                 },
               },
             }}
-            className="text-balance text-4xl font-semibold text-foreground md:text-6xl"
+            className="text-balance text-4xl font-bold font-sans text-foreground md:text-6xl tracking-tight"
           >
             Stay Organized, Stay{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-violet-900 bg-clip-text text-transparent font-semibold">
+            <span className="bg-gradient-to-r from-indigo-500 to-violet-900 bg-clip-text text-transparent font-bold font-sans">
               Savvio
             </span>
           </motion.h1>
