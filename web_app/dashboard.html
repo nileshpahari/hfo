@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nullpointer.ai - Live Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            grid-template-rows: 80px 1fr;
+            height: 100vh;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 0 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .meeting-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .control-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .record-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+
+        .record-btn.recording {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .widget {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .widget h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .live-transcription {
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .transcription-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .transcription-content {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            overflow-y: auto;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .speaker-segment {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 3px solid #667eea;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+
+        .speaker-name {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .sentiment-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .sentiment-positive { background: #28a745; }
+        .sentiment-neutral { background: #ffc107; }
+        .sentiment-negative { background: #dc3545; }
+
+        .analytics-grid {
+            height: 35%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .action-items-live {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .action-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 3px solid #28a745;
+        }
+
+        .participants-list {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .participant {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .talk-time-bar {
+            width: 60px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .talk-time-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s;
+        }
+
+        .waveform {
+            height: 60px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .wave-bar {
+            width: 3px;
+            background: #667eea;
+            margin: 0 1px;
+            border-radius: 2px;
+            animation: wave 1s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { height: 10px; }
+            50% { height: 40px; }
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #28a745;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo">N</div>
+                <div>
+                    <h2>nullpointer.ai</h2>
+                    <div class="status-indicator">
+                        <div class="status-dot"></div>
+                        <span id="meetingStatus">Ready to start</span>
+                    </div>
+                </div>
+            </div>
+            <div class="meeting-controls">
+                <input type="text" id="meetingTitle" placeholder="Meeting title..." style="padding: 10px; border-radius: 8px; border: none; background: rgba(255,255,255,0.1); color: white;">
+                <button id="recordBtn" class="control-btn record-btn">
+                    <i class="fas fa-microphone"></i>
+                    <span>Start Recording</span>
+                </button>
+                <button id="shareBtn" class="control-btn" style="background: #667eea; color: white;">
+                    <i class="fas fa-share"></i>
+                    Share
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="live-transcription">
+                <div class="transcription-header">
+                    <h2><i class="fas fa-microphone-alt"></i> Live Transcription</h2>
+                    <div class="waveform" id="waveform" style="display: none;">
+                        <div class="wave-bar" style="animation-delay: 0s;"></div>
+                        <div class="wave-bar" style="animation-delay: 0.1s;"></div>
+                        <div class="wave-bar" style="animation-delay: 0.2s;"></div>
+                        <div class="wave-bar" style="animation-delay: 0.3s;"></div>
+                        <div class="wave-bar" style="animation-delay: 0.4s;"></div>
+                    </div>
+                </div>
+                <div class="transcription-content" id="transcriptionContent">
+                    <div style="text-align: center; opacity: 0.6; margin-top: 50px;">
+                        <i class="fas fa-microphone" style="font-size: 48px; margin-bottom: 20px;"></i>
+                        <p>Click "Start Recording" to begin live transcription</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analytics-grid">
+                <div class="metric-card">
+                    <div class="metric-value" id="meetingDuration">00:00</div>
+                    <div class="metric-label">Duration</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="wordCount">0</div>
+                    <div class="metric-label">Words Spoken</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="sentimentScore">😐</div>
+                    <div class="metric-label">Overall Mood</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="actionItemsCount">0</div>
+                    <div class="metric-label">Action Items</div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h3><i class="fas fa-users"></i> Participants</h3>
+                <div class="participants-list" id="participantsList">
+                    <div class="participant">
+                        <span>You</span>
+                        <div class="talk-time-bar">
+                            <div class="talk-time-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3><i class="fas fa-tasks"></i> Live Action Items</h3>
+                <div class="action-items-live" id="actionItemsLive">
+                    <div style="text-align: center; opacity: 0.6; padding: 20px;">
+                        Action items will appear here as they're detected
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3><i class="fas fa-chart-line"></i> Meeting Insights</h3>
+                <div style="font-size: 14px;">
+                    <div style="margin-bottom: 10px;">
+                        <strong>Engagement Level:</strong>
+                        <div style="background: rgba(255,255,255,0.2); height: 6px; border-radius: 3px; margin-top: 5px;">
+                            <div id="engagementBar" style="background: #28a745; height: 100%; width: 0%; border-radius: 3px; transition: width 0.3s;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Speaking Distribution:</strong>
+                        <div id="speakingDistribution" style="margin-top: 5px; font-size: 12px;">
+                            Balanced conversation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
